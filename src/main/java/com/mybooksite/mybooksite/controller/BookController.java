@@ -19,28 +19,30 @@ public class BookController {
 
     //Get All Book Tomes
     @GetMapping("/books")
-    public ResponseEntity getAllBooks(){
+    public ResponseEntity getAllBooks() {
         List<Book> books = serviceBook.getAllBooks();
         return new ResponseEntity(books, HttpStatus.OK);
     }
 
     //Show single Book
     @GetMapping("/books/{tome}")
-    public ResponseEntity getBookByTome(@PathVariable(value = "tome")Integer tome){
+    public ResponseEntity getBookByTome(@PathVariable(value = "tome") Integer tome) {
         Book book = serviceBook.getBookByTome(tome);
         return new ResponseEntity(book, HttpStatus.OK);
     }
+
     //Show single Book
     //@RequestMapping(value = "/books/{title}", method = RequestMethod.GET)
-    @GetMapping("/book/{title}")
-    public ResponseEntity getBookByTitle(@PathVariable(value = "title")String title){
+ /*   @GetMapping("/book/{title}")
+    public ResponseEntity getBookByTitle(@PathVariable(value = "title") String title) {
         Book bookByTitle = serviceBook.getBookByTitle(title);
         return new ResponseEntity(bookByTitle, HttpStatus.OK);
-    }
+    }*/
+
     //Show Book by author
-   /* @GetMapping("/authors/{author}")
+/*    @GetMapping("/authors/{author}")
     //@RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity getBookByAuthor(@PathVariable(value = "author")String author){
+    public ResponseEntity getBookByAuthor(@PathVariable(value = "author") String author) {
         Book bookByAuthor = serviceBook.getBookByAuthor(author);
         return new ResponseEntity(bookByAuthor, HttpStatus.OK);
     }*/
