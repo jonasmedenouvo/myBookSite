@@ -13,6 +13,7 @@ public class ServiceBook {
     BookRepository bookRepository;
 
     public List<Book> getAllBooks() {
+
         return bookRepository.findAll();
     }
 
@@ -20,11 +21,13 @@ public class ServiceBook {
         return bookRepository.findByTome(tome);
     }
 
-    public Book getBookByAuthor(String author) {
-        return bookRepository.findByAuthor(author);
+    public List<Book> getBooksByAuthor(String author) {
+
+        return bookRepository.findAllByAuthor(author);
     }
 
     public Book getBookByTitle(String title) {
+
         return bookRepository.findByTitle(title);
     }
 

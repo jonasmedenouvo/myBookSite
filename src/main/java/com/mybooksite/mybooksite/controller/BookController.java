@@ -1,7 +1,9 @@
 package com.mybooksite.mybooksite.controller;
 
 import com.mybooksite.mybooksite.model.Book;
+import com.mybooksite.mybooksite.model.Saga;
 import com.mybooksite.mybooksite.service.ServiceBook;
+import com.mybooksite.mybooksite.service.ServiceSaga;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +19,7 @@ public class BookController {
     @Autowired
     ServiceBook serviceBook;
 
-    //Get All Book Tomes
+    //Get All Books
     @GetMapping("/books")
     public ResponseEntity getAllBooks() {
         List<Book> books = serviceBook.getAllBooks();
@@ -40,11 +42,11 @@ public class BookController {
     }*/
 
     //Show Book by author
-/*    @GetMapping("/authors/{author}")
+    @GetMapping("/authors/{author}")
     //@RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity getBookByAuthor(@PathVariable(value = "author") String author) {
-        Book bookByAuthor = serviceBook.getBookByAuthor(author);
+    public ResponseEntity getBooksByAuthor(@PathVariable(value = "author") String author) {
+        List<Book> bookByAuthor = serviceBook.getBooksByAuthor(author);
         return new ResponseEntity(bookByAuthor, HttpStatus.OK);
-    }*/
+    }
 
 }
