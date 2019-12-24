@@ -1,11 +1,10 @@
 package com.mybooksite.mybooksite.model;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-public class Saga extends Book {
+@Entity
+@Table(name = "saga", schema = "myBooksite")
+public class Saga {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
@@ -17,6 +16,8 @@ public class Saga extends Book {
     @Column(name = "author")
     private int author;
 
+    public Saga() {
+    }
     public Saga(String title, int tome, int author) {
         this.title = title;
         this.tome = tome;

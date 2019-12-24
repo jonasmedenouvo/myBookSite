@@ -19,6 +19,6 @@ public class ServiceSaga {
 
     public Saga getSagaById(int id) {
 
-        return sagaRepository.findBySaga(id);
+        return sagaRepository.findById(id);
     }
 }
