@@ -18,16 +18,16 @@ public class BookController {
 
     //Get All Books
     @GetMapping("/books")
-    public ResponseEntity getAllBooks() {
+    public ResponseEntity<List<Book>> getAllBooks() {
         List<Book> books = serviceBook.getAllBooks();
-        return new ResponseEntity(books, HttpStatus.OK);
+        return new ResponseEntity<List<Book>>(books, HttpStatus.OK);
     }
 
     //Show single Book
     @GetMapping("/books/{tome}")
-    public ResponseEntity getBookByTome(@PathVariable(value = "tome") Integer tome) {
+    public ResponseEntity<Book> getBookByTome(@PathVariable(value = "tome") Integer tome) {
         Book book = serviceBook.getBookByTome(tome);
-        return new ResponseEntity(book, HttpStatus.OK);
+        return new ResponseEntity<Book>(book, HttpStatus.OK);
     }
 
     //Show single Book
@@ -38,12 +38,12 @@ public class BookController {
         return new ResponseEntity(bookByTitle, HttpStatus.OK);
     }*/
 
-    //Show Book by author
-    @GetMapping("/authors/{author}")
-    //@RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity getBooksByAuthor(@PathVariable(value = "author") String author) {
-        List<Book> bookByAuthor = serviceBook.getBooksByAuthor(author);
-        return new ResponseEntity(bookByAuthor, HttpStatus.OK);
-    }
+//    //Show Book by author
+//    @GetMapping("/authors/{author}")
+//    //@RequestMapping(method = RequestMethod.GET)
+//    public ResponseEntity<List<Book>> getBooksByAuthor(@PathVariable(value = "author") String author) {
+//        List<Book> bookByAuthor = serviceBook.getBooksByAuthor(author);
+//        return new ResponseEntity<List<Book>>(bookByAuthor, HttpStatus.OK);
+//    }
 
 }

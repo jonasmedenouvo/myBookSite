@@ -1,0 +1,31 @@
+{
+	"folders": {},
+	"connections": {
+		"mysql5-1700d2d33de-191cf22c11fe7845": {
+			"provider": "mysql",
+			"driver": "mysql5",
+			"name": "MySQL - myBooksite",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"host": "localhost",
+				"port": "3306",
+				"database": "myBooksite",
+				"url": "jdbc:mysql://localhost:3306/myBooksite",
+				"home": "/usr",
+				"type": "dev",
+				"handlers": {}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false
+		}
+	}
+}
