@@ -8,26 +8,23 @@ use myBooksite;
 
 CREATE TABLE author (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    last_name VARCHAR(30) NOT NULL,
     first_name VARCHAR(30),
-    last_name VARCHAR(30),
-    nationality VARCHAR(30)
+    country VARCHAR(30) NOT NULL,
+    birth_date DATE
 );
 
 CREATE TABLE saga (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    saga_name VARCHAR(40),
-    tome_Number INT,
-    author INT,
-    FOREIGN KEY (author)
-        REFERENCES author (id)
+    saga_name VARCHAR(40) NOT NULL
 );
 
 CREATE TABLE book (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(50),
-    link_Url TEXT,
-    genre VARCHAR(40),
-    author INT,
+    title VARCHAR(50) NOT NULL,
+    link_Url TEXT NOT NULL,
+    genre VARCHAR(40) NOT NULL,
+    author INT NOT NULL,
     saga INT,
     FOREIGN KEY (author)
         REFERENCES author (id),
@@ -38,10 +35,10 @@ CREATE TABLE book (
 
 -- ! Insert author --
 
-insert into author (first_name,last_name, nationality) values ("Robin", "Hobb","USA");
-insert into author (first_name,last_name, nationality) values ("Xin", "Feng","CN");
-insert into saga (saga_name,tome_number, author) values ("L'assassin du Roi",13,1);
-insert into saga (saga_name,tome_number, author) values ("The Strongest System",1159,2);
+insert into author (first_name,last_name, country,birth_date) values ("Robin", "Hobb","USA",'1982-05-03');
+insert into author (first_name,last_name, country) values ("Xin", "Feng","CN");
+insert into saga (saga_name) values ("L'assassin du Roi");
+insert into saga (saga_name) values ("The Strongest System");
 
 -- inserts --
 
@@ -72,11 +69,11 @@ insert into book(title,link_Url,genre,author,saga) values ("L'Apprenti Assassin"
 ("Adieux et retrouvailles",
 "http://91.165.206.133:44656/share/G0BqrtKYmqNX90qQ/Robin%20Hobb%20-%20L'Assassin%20Royal%20-13-%20Adieux%20et%20Retrouvailles.pdf","Fantasy",1,1);
 
-insert into book(title,link_Url,genre,author,saga) values
+insert into book(title,link_Url,genre,author,saga) values 
 ("The Strongest System","https://drive.google.com/open?id=1XHB2robmtdlHyFL8R8Q5ZilLPbaSLMSZ","Xanxia",2,2);
 
 
-SELECT
+SELECT 
     *
 FROM
     book

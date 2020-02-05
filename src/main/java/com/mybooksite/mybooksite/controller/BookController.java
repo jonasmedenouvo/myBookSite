@@ -10,40 +10,24 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/api/v1")
+@RequestMapping("/api/books")
 public class BookController {
 
     @Autowired
     ServiceBook serviceBook;
 
     //Get All Books
-    @GetMapping("/books")
+    @GetMapping()
     public ResponseEntity<List<Book>> getAllBooks() {
         List<Book> books = serviceBook.getAllBooks();
-        return new ResponseEntity<List<Book>>(books, HttpStatus.OK);
+        return new ResponseEntity<>(books, HttpStatus.OK);
     }
 
     //Show single Book
-    @GetMapping("/books/{tome}")
+    @GetMapping("/{tome}")
     public ResponseEntity<Book> getBookByTome(@PathVariable(value = "tome") Integer tome) {
         Book book = serviceBook.getBookByTome(tome);
-        return new ResponseEntity<Book>(book, HttpStatus.OK);
+        return new ResponseEntity<>(book, HttpStatus.OK);
     }
-
-    //Show single Book
-    //@RequestMapping(value = "/books/{title}", method = RequestMethod.GET)
- /*   @GetMapping("/book/{title}")
-    public ResponseEntity getBookByTitle(@PathVariable(value = "title") String title) {
-        Book bookByTitle = serviceBook.getBookByTitle(title);
-        return new ResponseEntity(bookByTitle, HttpStatus.OK);
-    }*/
-
-//    //Show Book by author
-//    @GetMapping("/authors/{author}")
-//    //@RequestMapping(method = RequestMethod.GET)
-//    public ResponseEntity<List<Book>> getBooksByAuthor(@PathVariable(value = "author") String author) {
-//        List<Book> bookByAuthor = serviceBook.getBooksByAuthor(author);
-//        return new ResponseEntity<List<Book>>(bookByAuthor, HttpStatus.OK);
-//    }
 
 }
