@@ -1,7 +1,7 @@
 {
 	"folders": {},
 	"connections": {
-		"mysql5-1700d2d33de-191cf22c11fe7845": {
+		"mysql5-17014dee7f3-119edd17ecd02d80": {
 			"provider": "mysql",
 			"driver": "mysql5",
 			"name": "MySQL - myBooksite",

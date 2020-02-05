@@ -1,30 +1,37 @@
 package com.mybooksite.mybooksite.model;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "saga", schema = "myBooksite")
-public class Saga {
-    @Id
+public class Saga implements Serializable {
+	
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private int id;
     @Column(name = "saga_name")
     private String title;
-    @Column(name = "tome_Number")
-    private int tome;
-    @Column(name = "author")
-    private int author;
+    
 
     public Saga() {
     }
-    public Saga(String title, int tome, int author) {
-        this.title = title;
-        this.tome = tome;
-        this.author = author;
-    }
 
-    public int getId() {
+    public Saga(int id, String title) {
+		super();
+		this.id = id;
+		this.title = title;
+	}
+
+
+
+	public int getId() {
         return id;
     }
 
@@ -40,19 +47,5 @@ public class Saga {
         this.title = title;
     }
 
-    public int getTome() {
-        return tome;
-    }
-
-    public void setTome(int tome) {
-        this.tome = tome;
-    }
-
-    public int getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(int author) {
-        this.author = author;
-    }
+ 
 }

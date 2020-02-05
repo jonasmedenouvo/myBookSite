@@ -13,7 +13,5 @@ public interface SagaRepository extends JpaRepository<Saga,Integer> {
 
     Saga findById(int id);
 
-    Saga findAllByAuthor(String author);
-
     Saga findByTitle(String title);
 }

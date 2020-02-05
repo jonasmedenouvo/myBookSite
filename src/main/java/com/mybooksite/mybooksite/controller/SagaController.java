@@ -10,21 +10,21 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/api/v1")
+@RequestMapping("/api/sagas")
 public class SagaController {
 
     @Autowired
     ServiceSaga serviceSaga;
 
     //Get All Sagas
-    @GetMapping("/sagas")
+    @GetMapping()
     public ResponseEntity<List<Saga>> getAllSaga() {
         List<Saga> sagas = serviceSaga.getAllSaga();
         return new ResponseEntity<>(sagas, HttpStatus.OK);
     }
 
     //Get Saga by Id
-    @GetMapping("/sagas/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Saga> getOneSaga(@PathVariable(value = "id") Integer id) {
 
         Saga saga = serviceSaga.getSagaById(id);
