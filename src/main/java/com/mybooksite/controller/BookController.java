@@ -1,7 +1,8 @@
-package com.mybooksite.mybooksite.controller;
+package com.mybooksite.controller;
 
-import com.mybooksite.mybooksite.model.Book;
-import com.mybooksite.mybooksite.service.ServiceBook;
+import com.mybooksite.model.Book;
+import com.mybooksite.service.ServiceBook;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +11,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/api/books")
+@RequestMapping("/books")
 public class BookController {
 
     @Autowired
@@ -25,7 +26,7 @@ public class BookController {
 
     //Show single Book
     @GetMapping("/{tome}")
-    public ResponseEntity<Book> getBookByTome(@PathVariable(value = "tome") Integer tome) {
+    public ResponseEntity<Book> getBookByTome(@PathVariable(value = "tome") Integer tome) throws NonExistantBookException{
         Book book = serviceBook.getBookByTome(tome);
         return new ResponseEntity<>(book, HttpStatus.OK);
     }

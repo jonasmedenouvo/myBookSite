@@ -1,4 +1,4 @@
-package com.mybooksite.mybooksite;
+package com.mybooksite;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
