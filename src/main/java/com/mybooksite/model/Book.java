@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.mybooksite.model.enums.Genre;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "book")
@@ -12,12 +13,15 @@ public class Book {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
-	private int tome;
+	private int id;
 	@Column
+	@NotNull
 	private String title;
 	@Column
+	@NotNull
 	private String linkUrl;
 	@Column
+	@NotNull
 	private Genre genre;
 
 	@JsonBackReference
@@ -29,21 +33,21 @@ public class Book {
 
 	}
 
-	public Book(int tome, String title, String linkUrl, Genre genre, Author idAuthor) {
+	public Book(int id, @NotNull String title, @NotNull String linkUrl, @NotNull Genre genre, Author idAuthor) {
 		super();
-		this.tome = tome;
+		this.id = id;
 		this.title = title;
 		this.linkUrl = linkUrl;
 		this.genre = genre;
 		this.idAuthor = idAuthor;
 	}
 
-	public int getTome() {
-		return tome;
+	public int getId() {
+		return id;
 	}
 
-	public void setTome(int tome) {
-		this.tome = tome;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getTitle() {
@@ -70,12 +74,14 @@ public class Book {
 		this.genre = genre;
 	}
 
-	public Author getAuthor() {
+	public Author getIdAuthor() {
 		return idAuthor;
 	}
 
-	public void setAuthor(Author idAuthor) {
+	public void setIdAuthor(Author idAuthor) {
 		this.idAuthor = idAuthor;
 	}
+
+	
 
 }

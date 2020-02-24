@@ -2,7 +2,7 @@ package com.mybooksite.service.exceptions;
 
 public class NonExistantBookException extends Exception {
 
-	public NonExistantBookException(String string) {
+	public NonExistantBookException(String message) {
 	}
 
 	/**

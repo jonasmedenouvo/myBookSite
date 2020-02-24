@@ -1,7 +1,7 @@
 package com.mybooksite.controller;
 
 import com.mybooksite.model.Book;
-import com.mybooksite.service.ServiceBook;
+import com.mybooksite.service.BookService;
 import com.mybooksite.service.exceptions.NonExistantBookException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import java.util.List;
 public class BookController {
 
     @Autowired
-    ServiceBook serviceBook;
+    BookService serviceBook;
 
     //Get All Books
     @GetMapping()
@@ -27,8 +27,8 @@ public class BookController {
 
     //Show single Book
     @GetMapping("/{tome}")
-    public ResponseEntity<Book> getBookByTome(@PathVariable(value = "tome") Integer tome) throws NonExistantBookException{
-        Book book = serviceBook.getBookByTome(tome);
+    public ResponseEntity<Book> getBookById(@PathVariable(value = "id") Integer id) throws NonExistantBookException{
+        Book book = serviceBook.getBookById(id);
         return new ResponseEntity<>(book, HttpStatus.OK);
     }
 

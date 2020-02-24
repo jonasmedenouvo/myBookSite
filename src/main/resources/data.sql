@@ -1,7 +1,7 @@
 -- Insert author --
 
 insert into author (birth_date,country,last_name,first_name) values ('1982-05-03',112,"Hobb","Robin");
-insert into author (country,last_name,first_name) values (17,"Xin","Feng");
+insert into author (country,last_name,first_name) values (18,"Xin","Feng");
 
 -- Inserts Book --
 

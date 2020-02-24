@@ -14,6 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.lang.Nullable;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.mybooksite.model.enums.Country;
 
@@ -33,6 +35,7 @@ public class Author {
 	private String firstName;
 
 	@Column
+	@Nullable
 	private Date birthDate;
 
 	@Column

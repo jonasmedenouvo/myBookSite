@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ServiceBook {
+public class BookService {
 	@Autowired
 	BookRepository bookRepository;
 
@@ -21,7 +21,7 @@ public class ServiceBook {
 		return bookRepository.findAll();
 	}
 
-	public Book getBookByTome(int id) throws NonExistantBookException {
+	public Book getBookById(int id) throws NonExistantBookException {
 		Optional<Book> optionnalBook = bookRepository.findById(id);
 		if (!optionnalBook.isPresent()) {
 			throw new NonExistantBookException("L'id " + id + " ne correspond à aucun livre !");
