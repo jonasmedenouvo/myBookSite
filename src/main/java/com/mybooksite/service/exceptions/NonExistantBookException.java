@@ -1,4 +1,4 @@
-package com.mybooksite.controller;
+package com.mybooksite.service.exceptions;
 
 public class NonExistantBookException extends Exception {
 

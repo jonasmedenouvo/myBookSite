@@ -1,9 +1,9 @@
 package com.mybooksite.service;
 
-import com.mybooksite.controller.NonExistantBookException;
 import com.mybooksite.model.Book;
 import com.mybooksite.model.enums.Genre;
 import com.mybooksite.repository.BookRepository;
+import com.mybooksite.service.exceptions.NonExistantBookException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

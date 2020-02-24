@@ -1,9 +1,9 @@
--- ! Insert author --
+-- Insert author --
 
 insert into author (birth_date,country,last_name,first_name) values ('1982-05-03',112,"Hobb","Robin");
 insert into author (country,last_name,first_name) values (17,"Xin","Feng");
 
--- inserts --
+-- Inserts Book --
 
 insert into book(genre,link_Url,title,id_author) values 
 ("11","http://91.165.206.133:44656/share/P9Z-ZRTsRjiQKBMo/Robin%20Hobb%20-%20L'Assassin%20Royal%20-1-%20L'Apprenti%20Assassin.pdf","L'Apprenti Assassin",

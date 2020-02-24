@@ -2,6 +2,7 @@ package com.mybooksite.controller;
 
 import com.mybooksite.model.Book;
 import com.mybooksite.service.ServiceBook;
+import com.mybooksite.service.exceptions.NonExistantBookException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

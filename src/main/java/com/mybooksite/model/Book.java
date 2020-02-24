@@ -9,9 +9,6 @@ import javax.persistence.*;
 @Table(name = "book")
 public class Book {
 
-	/**
-	 * 
-	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
@@ -25,7 +22,7 @@ public class Book {
 
 	@JsonBackReference
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idAuthor")
+	@JoinColumn(name = "idAuthor",nullable=false)
 	private Author idAuthor;
 
 	public Book() {
