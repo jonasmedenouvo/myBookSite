@@ -1,0 +1,26 @@
+# docker-compose.yml
+
+version: '3'
+
+services:  
+  my-book-back:
+    image: my-book-back
+    container_name: my-book-back
+    depends_on:
+      - docker-mysql
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://docker-mysql:3306/myBookSite?allowPublicKeyRetrieval=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    ports:
+      - 8181:8181
+      
+  docker-mysql:
+    image: mysql:latest
+    container_name: docker-mysql
+    environment:
+      MYSQL_DATABASE: myBookSite
+      MYSQL_USER: myBookUser
+      MYSQL_PASSWORD: phone2keep      
+      MYSQL_ROOT_PASSWORD: phone2keep
+      MYSQL_HOST: '%'
+    command: mysqld --lower_case_table_names=1 --skip-ssl --character_set_server=utf8
+   
