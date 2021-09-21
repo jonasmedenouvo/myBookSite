@@ -32,7 +32,7 @@ public class AuthorController {
 	@GetMapping("/{id}")
 	public ResponseEntity<Author> getAuthorByID(@PathVariable(value = "id") Integer id)
 			throws NonExistantAuthorException {
-		Author author = authorService.getAuthorById(id);
+		var author = authorService.getAuthorById(id);
 		return new ResponseEntity<>(author, HttpStatus.OK);
 	}
 

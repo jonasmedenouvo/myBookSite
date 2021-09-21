@@ -26,9 +26,9 @@ public class BookController {
     }
 
     //Show single Book
-    @GetMapping("/{tome}")
+    @GetMapping("/{id}")
     public ResponseEntity<Book> getBookById(@PathVariable(value = "id") Integer id) throws NonExistantBookException{
-        Book book = serviceBook.getBookById(id);
+        var book = serviceBook.getBookById(id);
         return new ResponseEntity<>(book, HttpStatus.OK);
     }
 
